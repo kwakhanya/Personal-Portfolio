@@ -33,8 +33,6 @@ $(document).ready(function () {
         $('.menu-btn i').toggleClass("active");
     });
 
-    // typing text animation script
-    
 
     // owl carousel script
     $('.carousel').owlCarousel({

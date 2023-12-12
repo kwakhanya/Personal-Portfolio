@@ -14,6 +14,13 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("xOVZT7p0u5qevjgCI");
+        })();
+    </script>
+
 </head>
 
 <body>
@@ -61,10 +68,13 @@
                 </div>
                 <div class="column right">
                     <div class="text">I'm Baxolise and I'm a <span>FullStack Software Developer</span></div>
-                    <p>I have a strong foundation in commercial subjects from high school and a Bachelor of Information Systems
-                    degree obtained in 2018 from the University of Fort Hare. With a blend of business acumen and technical expertise, I'm
-                    equipped to excel in the dynamic world of technology. I'm enthusiastic about leveraging my education and experience to
-                    contribute effectively to a variety of projects and industries.</p>
+                    <p>I have a strong foundation in commercial subjects from high school and a Bachelor of Information
+                        Systems
+                        degree obtained in 2018 from the University of Fort Hare. With a blend of business acumen and
+                        technical expertise, I'm
+                        equipped to excel in the dynamic world of technology. I'm enthusiastic about leveraging my
+                        education and experience to
+                        contribute effectively to a variety of projects and industries.</p>
                     <a href="resume/Baxolise's Resume.pdf" target="_blank" download>Download CV</a>
 
                 </div>
@@ -97,7 +107,7 @@
                     <div class="box">
                         <i class="fas fa-paint-brush"></i>
                         <div class="text">Thee Best Construction</div>
-                        
+                        <a href=" https://kwakhanya.github.io/Thee-Best-Group-Project/">Live Demo</a>
                     </div>
                 </div>
                 <div class="card">
@@ -111,9 +121,9 @@
                         <i class="fas fa-code"></i>
                         <div class="text">Financial Calculator</div>
                     </div>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
     <!-- skills section start -->
@@ -123,9 +133,11 @@
             <div class="skills-content">
                 <div class="column left">
                     <div class="text">My creative skills & experiences.</div>
-                    <p>As a developer, I possess a diverse set of skills that enable me to create, maintain, and enhance software applications
-                    and systems. These skills encompass various aspects of software development, and I continually strive to stay updated
-                    with the latest industry trends and technologies.</p>
+                    <p>As a developer, I possess a diverse set of skills that enable me to create, maintain, and enhance
+                        software applications
+                        and systems. These skills encompass various aspects of software development, and I continually
+                        strive to stay updated
+                        with the latest industry trends and technologies.</p>
                 </div>
                 <div class="column right">
                     <div class="bars">
@@ -168,7 +180,7 @@
         </div>
     </section>
 
-   
+
 
     <!-- contact section start -->
     <section class="contact" id="contact">
@@ -207,20 +219,21 @@
                     <form action="#">
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" name="fullName" id="fullName" placeholder="Name" required>
                             </div>
                             <div class="field email">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" id="email_id" name="email" placeholder="Email" required>
                             </div>
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea cols="30" rows="10" id="message" name="message" placeholder="Message.."
+                                required></textarea>
                         </div>
                         <div class="button-area">
-                            <button type="submit">Send message</button>
+                            <button onclick="sendmail(event)">Send</button>
                         </div>
                     </form>
                 </div>
@@ -235,6 +248,28 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        function sendmail(event) {
+            event.preventDefault();
+            let params = {
+                fullname: document.getElementById("fullName").value,
+                email: document.getElementById("email_id").value,
+                subject: document.getElementById("subject").value,
+                message: document.getElementById("message").value,
+            }
+
+            emailjs.send("service_ms7thw7", "template_e2q04bg", params)
+                .then(function (res) {
+                    alert("Success! " + res.status);
+                })
+                .catch(function (error) {
+                    alert("Error sending message. Please try again later.");
+                    console.error("Error sending email:", error);
+                });
+        }
+    </script>
+
 </body>
 
 </html>
