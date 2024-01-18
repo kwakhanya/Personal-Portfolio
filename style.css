@@ -58,6 +58,9 @@ section {
     align-items: center;
     justify-content: space-between;
 }
+section{
+    min-height: 100vh;
+}
 
 section .title {
     position: relative;
@@ -101,7 +104,7 @@ section .title::after {
     transition: all 0.3s ease;
 }
 
-.navbar.sticky {
+ .navbar.sticky {
     padding: 15px 0;
     background: crimson;
 }
@@ -234,12 +237,12 @@ section .title::after {
 }
 
 .home .home-content a {
-    display: inline-block;
+    display: contents;
     background: crimson;
     color: #fff;
     font-size: 25px;
     padding: 12px 36px;
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: 400;
     border-radius: 6px;
     border: 2px solid crimson;
@@ -249,6 +252,13 @@ section .title::after {
 .home .home-content a:hover {
     color: crimson;
     background: none;
+}
+.link-access{
+    display: flex;
+    /* justify-content: center; */
+    gap: 2rem;
+    margin-top: 40px;
+
 }
 
 /* about section styling */
@@ -322,7 +332,7 @@ section .title::after {
 
 .projects .proj-content {
     display: flex;
-    gap: 1rem;
+    gap: 5rem;
 }
 
 .projects .proj-content .card {
